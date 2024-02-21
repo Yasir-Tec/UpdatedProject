@@ -1,0 +1,29 @@
+package com.example.demo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dao.Adminrepo;
+import com.example.demo.model.Admin;
+
+@Service
+public class Adminservice {
+	@Autowired
+	Adminrepo adm;
+
+	public String login(Admin admindata) {
+		Admin con= adm.findByEmail(admindata.getEmail())
+				.orElseThrow(()-> new RuntimeException("Admin not found with this email "+admindata.getEmail()));
+		if(admindata.getPassword().equals(con.getPassword()))
+		{
+			return "Login successfully";
+		}
+		else {
+			return "Password is Incorrect";
+		}
+	
+	}
+
+
+
+}

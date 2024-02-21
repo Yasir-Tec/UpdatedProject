@@ -1,0 +1,14 @@
+package construction.project.data.service1;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import constuction.project.data.services.ContractorRepository;
+
+@Service
+public class ConstructionServiceImpl implements constructionService{
+	
+	@Autowired
+	private ContractorRepository crepo;
+
+}
